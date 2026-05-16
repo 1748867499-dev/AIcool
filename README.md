@@ -1,0 +1,2 @@
+# AIcool
+ai project
