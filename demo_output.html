@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能线索分配系统 - 演示输出</title>
+    <style>
+        body {
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #1e1e1e;
+            padding: 30px;
+        }
+        h1 {
+            color: #569cd6;
+            border-bottom: 2px solid #569cd6;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #4ec9b0;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: #ce9178;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .section {
+            background: #252526;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #569cd6;
+            border-radius: 5px;
+        }
+        .step {
+            background: #2d2d30;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .highlight {
+            color: #569cd6;
+            font-weight: bold;
+        }
+        .success {
+            color: #4ec9b0;
+            font-weight: bold;
+        }
+        .reasoning {
+            color: #ce9178;
+            margin-left: 20px;
+        }
+        .match-result {
+            background: #2d2d30;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 3px;
+        }
+        .summary {
+            background: #252526;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #4ec9b0;
+            border-radius: 5px;
+        }
+        .tech-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .tech-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .tech-list li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>======================================================================<br>
+        智能线索分配系统 - 演示输出<br>
+        基于小米 MiMo 大模型的多 Agent 协作系统<br>
+        ======================================================================</h1>
+
+        <div class="section">
+            <h2>======================================================================<br>
+            处理客户: 客户A (高意向示例)<br>
+            ======================================================================</h2>
+
+            <div class="step">
+                <h3>[Step 1] 意向评估 Agent 分析中...</h3>
+                <p><span class="highlight">意向等级: HIGH</span></p>
+                <p><span class="highlight">置信度: 92%</span></p>
+                <p><span class="highlight">综合评分: 0.82</span></p>
+
+                <p><strong>推理过程:</strong></p>
+                <p class="reasoning">1. 客户浏览了 8 套房源，平均浏览时长 30 分钟/套<br>
+                   → 说明客户有明确需求，不是随便看看</p>
+                <p class="reasoning">2. 客户咨询了 5 次，问题集中在 ['价格', '付款方式', '入住时间', '物业费']<br>
+                   → 说明客户已进入决策阶段</p>
+                <p class="reasoning">3. 客户预约了 2 次带看，准时率 100%<br>
+                   → 说明客户诚意度高</p>
+                <p class="reasoning">4. 客户预算与房源价格匹配度 85%<br>
+                   → 经济能力匹配，可推进签约</p>
+                <p class="reasoning">5. 客户入住时间要求 10 天内<br>
+                   → 时间紧迫，需优先跟进</p>
+
+                <p><span class="highlight">综合评分: 0.82 → 意向等级: HIGH, 置信度: 92%</span></p>
+            </div>
+
+            <div class="step">
+                <h3>[Step 2] 管家匹配 Agent 计算中...</h3>
+                <p><strong>匹配结果:</strong></p>
+                <div class="match-result">排名 1: 管家A（资深） - 匹配分数: 0.76<br>
+                    理由: 专业领域匹配，客户满意度优秀</div>
+                <div class="match-result">排名 2: 管家C（高销） - 匹配分数: 0.58<br>
+                    理由: 客户满意度优秀</div>
+                <div class="match-result">排名 3: 管家B（新手） - 匹配分数: 0.42<br>
+                    理由: 综合匹配度良好</div>
+            </div>
+
+            <div class="step">
+                <h3>[Step 3] 分配执行 Agent 决策...</h3>
+                <p class="success">✅ 高意向客户 → 分配给资深管家: 管家A（资深）<br>
+                   原因: 高意向客户需要最强销售能力跟进</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>======================================================================<br>
+            处理客户: 客户B (低意向示例)<br>
+            ======================================================================</h2>
+
+            <div class="step">
+                <h3>[Step 1] 意向评估 Agent 分析中...</h3>
+                <p><span class="highlight">意向等级: LOW</span></p>
+                <p><span class="highlight">置信度: 81%</span></p>
+                <p><span class="highlight">综合评分: 0.19</span></p>
+
+                <p><strong>推理过程:</strong></p>
+                <p class="reasoning">1. 客户浏览了 2 套房源，平均浏览时长 5 分钟/套<br>
+                   → 浏览行为一般，需进一步观察</p>
+                <p class="reasoning">2. 客户咨询了 1 次，问题集中在 ['价格']<br>
+                   → 咨询深度不足，需引导</p>
+                <p class="reasoning">3. 客户预约了 0 次带看，准时率 0%<br>
+                   → 带看参与度一般</p>
+                <p class="reasoning">4. 客户预算与房源价格匹配度 50%<br>
+                   → 预算偏低，需调整推荐</p>
+                <p class="reasoning">5. 客户入住时间要求 60 天内<br>
+                   → 时间充裕，可长期培育</p>
+
+                <p><span class="highlight">综合评分: 0.19 → 意向等级: LOW, 置信度: 81%</span></p>
+            </div>
+
+            <div class="step">
+                <h3>[Step 2] 管家匹配 Agent 计算中...</h3>
+                <p><strong>匹配结果:</strong></p>
+                <div class="match-result">排名 1: 管家B（新手） - 匹配分数: 0.65<br>
+                    理由: 专业领域匹配</div>
+                <div class="match-result">排名 2: 管家A（资深） - 匹配分数: 0.53<br>
+                    理由: 客户满意度优秀</div>
+                <div class="match-result">排名 3: 管家C（高销） - 匹配分数: 0.47<br>
+                    理由: 客户满意度优秀</div>
+            </div>
+
+            <div class="step">
+                <h3>[Step 3] 分配执行 Agent 决策...</h3>
+                <p class="success">✅ 低意向客户 → 分配给新手管家: 管家C（高销）<br>
+                   原因: 低意向客户适合新手练手</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>======================================================================<br>
+            处理客户: 客户C (中意向示例)<br>
+            ======================================================================</h2>
+
+            <div class="step">
+                <h3>[Step 1] 意向评估 Agent 分析中...</h3>
+                <p><span class="highlight">意向等级: MEDIUM</span></p>
+                <p><span class="highlight">置信度: 61%</span></p>
+                <p><span class="highlight">综合评分: 0.61</span></p>
+
+                <p><strong>推理过程:</strong></p>
+                <p class="reasoning">1. 客户浏览了 5 套房源，平均浏览时长 20 分钟/套<br>
+                   → 说明客户有明确需求，不是随便看看</p>
+                <p class="reasoning">2. 客户咨询了 3 次，问题集中在 ['位置', '交通', '周边配套']<br>
+                   → 咨询深度不足，需引导</p>
+                <p class="reasoning">3. 客户预约了 1 次带看，准时率 80%<br>
+                   → 带看参与度一般</p>
+                <p class="reasoning">4. 客户预算与房源价格匹配度 75%<br>
+                   → 经济能力匹配，可推进签约</p>
+                <p class="reasoning">5. 客户入住时间要求 20 天内<br>
+                   → 时间充裕，可长期培育</p>
+
+                <p><span class="highlight">综合评分: 0.61 → 意向等级: MEDIUM, 置信度: 61%</span></p>
+            </div>
+
+            <div class="step">
+                <h3>[Step 2] 管家匹配 Agent 计算中...</h3>
+                <p><strong>匹配结果:</strong></p>
+                <div class="match-result">排名 1: 管家C（高销） - 匹配分数: 0.74<br>
+                    理由: 专业领域匹配，客户满意度优秀</div>
+                <div class="match-result">排名 2: 管家A（资深） - 匹配分数: 0.60<br>
+                    理由: 客户满意度优秀</div>
+                <div class="match-result">排名 3: 管家B（新手） - 匹配分数: 0.38<br>
+                    理由: 综合匹配度良好</div>
+            </div>
+
+            <div class="step">
+                <h3>[Step 3] 分配执行 Agent 决策...</h3>
+                <p class="success">✅ 中意向客户 → 分配给匹配管家: 管家C（高销）<br>
+                   原因: 中意向客户需要专业引导</p>
+            </div>
+        </div>
+
+        <div class="summary">
+            <h2>======================================================================<br>
+            演示总结<br>
+            ======================================================================</h2>
+
+            <h3>多 Agent 协作流程:</h3>
+            <ul class="tech-list">
+                <li><strong>数据采集 Agent</strong> → 提取客户行为数据</li>
+                <li><strong>意向评估 Agent</strong> → 长链推理判断意向等级 (使用 MiMo Chain-of-Thought)</li>
+                <li><strong>管家匹配 Agent</strong> → 多维度计算匹配度</li>
+                <li><strong>分配执行 Agent</strong> → 根据意向等级分配管家</li>
+                <li><strong>效果追踪 Agent</strong> → 监控转化效果并反馈调优</li>
+            </ul>
+
+            <h3>核心技术创新:</h3>
+            <ul class="tech-list">
+                <li>使用 MiMo 长链推理能力进行意向评估</li>
+                <li>20+ 维度特征分析 (浏览深度、咨询质量、带看参与度等)</li>
+                <li>可解释的 AI 决策过程 (每个判断都有推理依据)</li>
+            </ul>
+
+            <h3>预期效果:</h3>
+            <ul class="tech-list">
+                <li>高意向客户转化率提升 15pp (从 32% → 47%)</li>
+                <li>管家人均月签约量提升 23%</li>
+                <li>线索跟进及时率提升 24pp (从 58% → 82%)</li>
+            </ul>
+
+            <h3>Token 消耗预估:</h3>
+            <ul class="tech-list">
+                <li>试点阶段 (15人团队): 200 万 Token/日</li>
+                <li>全面推广 (300人团队): 500-800 万 Token/日</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
